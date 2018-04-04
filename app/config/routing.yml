@@ -1,0 +1,41 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+podcastsGetAll:
+    path:   /podcasts
+    defaults: {_controller: AppBundle:Podcast:getAllPodcasts}
+    methods:  [GET]
+
+podcastGet:
+    path:   /podcast/id/{id}
+    defaults: {_controller: AppBundle:Podcast:getPodcast}
+    methods: [GET]
+    requirements:
+        id: '\d+'
+
+#set to id, could allow additional seearch fields in future
+podcastEpisodesGet:
+    path:   /podcast/episodes/id/{id}
+    defaults: {_controller: AppBundle:Podcast:getPodcastEpisodes}
+    methods:  [GET]
+    requirements:
+        id: '\d+'
+
+episodesGetAll:
+    path:   /episodes
+    defaults: {_controller: AppBundle:Episode:getAllEpisodes}
+    methods:  [GET]
+
+episodeGet:
+    path:   /episode/id/{id}
+    defaults: {_controller: AppBundle:Episode:getEpisode}
+    methods:  [GET]
+    requirements:
+        id: '\d+'
+
+episodePost:
+    path:   /episode/add
+    defaults: {_controller: AppBundle:Episode:postEpisode}
+    methods: [POST]
+

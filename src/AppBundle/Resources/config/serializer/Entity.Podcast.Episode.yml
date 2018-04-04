@@ -1,0 +1,17 @@
+AppBundle\Entity\Podcast\Episode:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+        title:
+            exclude: true
+        description:
+            expose: true
+        number:
+            expose: true
+        url:
+            expose: true
+        dateCreated:
+            expose: true
+        dateModified:
+            exclude: true

@@ -1,0 +1,9 @@
+AppBundle\Entity\Podcast\Episode:
+    properties:
+        uploadFile:
+            - NotBlank: {message: You need to upload a MP3 File.}
+            - File:
+                 maxSize: 75M
+                 maxSizeMessage: The file uploaded is too large ({{ size }} {{ suffix }}). The maximum allowed is {{ limit }} {{ suffix }}.
+                 mimeTypes: [audio/mpeg]
+                 mimeTypesMessage: Please upload a valid MP3 file.

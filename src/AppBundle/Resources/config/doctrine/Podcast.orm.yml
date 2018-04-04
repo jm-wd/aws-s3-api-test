@@ -1,0 +1,24 @@
+AppBundle\Entity\Podcast:
+    type: entity
+    table: podcast
+    repositoryClass: AppBundle\Repository\PodcastRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+            unique: true
+        dateCreated:
+            type: datetime
+            column: date_created
+    oneToMany:
+        episodes:
+            targetEntity: AppBundle\Entity\Podcast\Episode
+            mappedBy: podcast
+            cascade: ["remove"]
+    lifecycleCallbacks: {  }

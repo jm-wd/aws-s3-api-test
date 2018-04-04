@@ -1,0 +1,36 @@
+AppBundle\Entity\Podcast\Episode:
+    type: entity
+    table: episode
+    repositoryClass: AppBundle\Repository\Podcast\EpisodeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        number:
+            type: integer
+        url:
+            type: string
+            length: 255
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateModified:
+            type: datetime
+            column: date_modified
+    manyToOne:
+        podcast:
+            targetEntity: AppBundle\Entity\Podcast
+            inversedBy: episodes
+            orphanRemoval: true
+            joinColumn:
+                name: podcast_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
